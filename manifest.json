@@ -1,0 +1,17 @@
+{
+  "name": "Poker Ledger — Poker Buy-ins & Settlement",
+  "short_name": "Poker Ledger",
+  "description": "Track poker buy-ins with tap-only entry and settle up with minimum transactions.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#181713",
+  "theme_color": "#181713",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

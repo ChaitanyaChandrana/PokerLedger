@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Poker Ledger — Poker Buy-ins & Settlement</title>
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#181713">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Poker Ledger">
+<script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
+<style>*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.inset-0{inset:0}.bottom-0{bottom:0}.left-0{left:0}.right-0{right:0}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.my-3{margin-top:.75rem;margin-bottom:.75rem}.mb-1{margin-bottom:.25rem}.mb-1\.5{margin-bottom:.375rem}.mb-10{margin-bottom:2.5rem}.mb-2{margin-bottom:.5rem}.mb-2\.5{margin-bottom:.625rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mb-6{margin-bottom:1.5rem}.ml-0\.5{margin-left:.125rem}.ml-2{margin-left:.5rem}.ml-3{margin-left:.75rem}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-1\.5{margin-top:.375rem}.mt-2{margin-top:.5rem}.mt-2\.5{margin-top:.625rem}.mt-3{margin-top:.75rem}.mt-3\.5{margin-top:.875rem}.mt-4{margin-top:1rem}.mt-8{margin-top:2rem}.block{display:block}.inline-block{display:inline-block}.inline{display:inline}.flex{display:flex}.inline-flex{display:inline-flex}.table{display:table}.hidden{display:none}.h-2{height:.5rem}.h-3\.5{height:.875rem}.h-40{height:10rem}.h-full{height:100%}.min-h-screen{min-height:100vh}.w-3\.5{width:.875rem}.w-5{width:1.25rem}.w-full{width:100%}.min-w-0{min-width:0}.max-w-\[60\%\]{max-width:60%}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.items-baseline{align-items:baseline}.justify-end{justify-content:flex-end}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.space-y-1\.5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.375rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.375rem*var(--tw-space-y-reverse))}.space-y-2>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.5rem*var(--tw-space-y-reverse))}.space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.self-center{align-self:center}.overflow-hidden,.truncate{overflow:hidden}.truncate{text-overflow:ellipsis;white-space:nowrap}.break-all{word-break:break-all}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}.border{border-width:1px}.border-t{border-top-width:1px}.border-coral-500\/30{border-color:rgba(201,58,58,.3)}.border-felt-600{--tw-border-opacity:1;border-color:rgb(76 70 60/var(--tw-border-opacity,1))}.border-felt-700{--tw-border-opacity:1;border-color:rgb(61 56 48/var(--tw-border-opacity,1))}.border-gold-200\/60{border-color:hsla(43,86%,80%,.6)}.border-gold-500\/30{border-color:rgba(200,148,48,.3)}.border-gold-500\/40{border-color:rgba(200,148,48,.4)}.border-gold-500\/50{border-color:rgba(200,148,48,.5)}.bg-bone{--tw-bg-opacity:1;background-color:rgb(243 238 227/var(--tw-bg-opacity,1))}.bg-coral-500{--tw-bg-opacity:1;background-color:rgb(201 58 58/var(--tw-bg-opacity,1))}.bg-coral-500\/10{background-color:rgba(201,58,58,.1)}.bg-felt-800{--tw-bg-opacity:1;background-color:rgb(44 40 34/var(--tw-bg-opacity,1))}.bg-felt-800\/50{background-color:rgba(44,40,34,.5)}.bg-felt-800\/60{background-color:rgba(44,40,34,.6)}.bg-felt-800\/70{background-color:rgba(44,40,34,.7)}.bg-felt-900{--tw-bg-opacity:1;background-color:rgb(34 31 26/var(--tw-bg-opacity,1))}.bg-felt-900\/60{background-color:rgba(34,31,26,.6)}.bg-felt-950{--tw-bg-opacity:1;background-color:rgb(24 23 19/var(--tw-bg-opacity,1))}.bg-felt-950\/80{background-color:rgba(24,23,19,.8)}.bg-felt-950\/95{background-color:rgba(24,23,19,.95)}.bg-gradient-to-b{background-image:linear-gradient(to bottom,var(--tw-gradient-stops))}.bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}.from-felt-800{--tw-gradient-from:#2c2822 var(--tw-gradient-from-position);--tw-gradient-to:rgba(44,40,34,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-gold-300{--tw-gradient-from:#f2ca6e var(--tw-gradient-from-position);--tw-gradient-to:hsla(42,84%,69%,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-gold-500{--tw-gradient-from:#c89430 var(--tw-gradient-from-position);--tw-gradient-to:rgba(200,148,48,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-gold-500\/10{--tw-gradient-from:rgba(200,148,48,.1) var(--tw-gradient-from-position);--tw-gradient-to:rgba(200,148,48,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.to-felt-900{--tw-gradient-to:#221f1a var(--tw-gradient-to-position)}.to-gold-300{--tw-gradient-to:#f2ca6e var(--tw-gradient-to-position)}.to-gold-500{--tw-gradient-to:#c89430 var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.p-2\.5{padding:.625rem}.p-3{padding:.75rem}.p-3\.5{padding:.875rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-2\.5{padding-left:.625rem;padding-right:.625rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-3\.5{padding-left:.875rem;padding-right:.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-3\.5{padding-top:.875rem;padding-bottom:.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.pb-2{padding-bottom:.5rem}.pb-28{padding-bottom:7rem}.pb-32{padding-bottom:8rem}.pl-1{padding-left:.25rem}.pt-4{padding-top:1rem}.pt-6{padding-top:1.5rem}.text-center{text-align:center}.align-middle{vertical-align:middle}.font-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[15px\]{font-size:15px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.tabular-nums{--tw-numeric-spacing:tabular-nums;font-variant-numeric:var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction)}.leading-none{line-height:1}.tracking-\[0\.14em\]{letter-spacing:.14em}.tracking-\[0\.18em\]{letter-spacing:.18em}.tracking-\[0\.2em\]{letter-spacing:.2em}.tracking-tight{letter-spacing:-.025em}.tracking-wide{letter-spacing:.025em}.text-bone{--tw-text-opacity:1;color:rgb(243 238 227/var(--tw-text-opacity,1))}.text-coral-300{--tw-text-opacity:1;color:rgb(240 160 160/var(--tw-text-opacity,1))}.text-coral-400{--tw-text-opacity:1;color:rgb(240 98 95/var(--tw-text-opacity,1))}.text-coral-400\/80{color:rgba(240,98,95,.8)}.text-gold-300{--tw-text-opacity:1;color:rgb(242 202 110/var(--tw-text-opacity,1))}.text-gold-400{--tw-text-opacity:1;color:rgb(232 178 61/var(--tw-text-opacity,1))}.text-gold-400\/80{color:rgba(232,178,61,.8)}.text-gold-400\/90{color:rgba(232,178,61,.9)}.text-ink{--tw-text-opacity:1;color:rgb(28 26 21/var(--tw-text-opacity,1))}.text-mint-400{--tw-text-opacity:1;color:rgb(62 203 128/var(--tw-text-opacity,1))}.text-smoke{--tw-text-opacity:1;color:rgb(166 156 137/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.underline{text-decoration-line:underline}.shadow-\[0_0_24px_-4px_rgba\(232\2c 178\2c 61\2c 0\.45\)\]{--tw-shadow:0 0 24px -4px rgba(232,178,61,.45);--tw-shadow-colored:0 0 24px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-\[0_0_40px_-12px_rgba\(232\2c 178\2c 61\2c 0\.25\)\]{--tw-shadow:0 0 40px -12px rgba(232,178,61,.25);--tw-shadow-colored:0 0 40px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-500{transition-duration:.5s}.ease-out{transition-timing-function:cubic-bezier(0,0,.2,1)}@keyframes chip-pop{0%{transform:scale(.3) translateY(6px);opacity:0}60%{transform:scale(1.15) translateY(-2px);opacity:1}to{transform:scale(1) translateY(0);opacity:1}}.animate-chip-pop{animation:chip-pop .35s cubic-bezier(.34,1.56,.64,1)}.placeholder\:text-smoke\/60::-moz-placeholder{color:hsla(39,14%,59%,.6)}.placeholder\:text-smoke\/60::placeholder{color:hsla(39,14%,59%,.6)}.hover\:bg-felt-700\/60:hover{background-color:rgba(61,56,48,.6)}.hover\:bg-gold-500\/10:hover{background-color:rgba(200,148,48,.1)}.hover\:from-gold-200:hover{--tw-gradient-from:#f8dfa0 var(--tw-gradient-from-position);--tw-gradient-to:hsla(43,86%,80%,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.hover\:to-gold-400:hover{--tw-gradient-to:#e8b23d var(--tw-gradient-to-position)}.focus\:border-gold-400:focus{--tw-border-opacity:1;border-color:rgb(232 178 61/var(--tw-border-opacity,1))}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus\:ring-gold-400\/20:focus{--tw-ring-color:rgba(232,178,61,.2)}.active\:scale-\[0\.97\]:active{--tw-scale-x:0.97;--tw-scale-y:0.97;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.disabled\:opacity-40:disabled{opacity:.4}.disabled\:opacity-50:disabled{opacity:.5}</style>
+<style>
+  html, body { margin: 0; padding: 0; background: #181713; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const {
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  useMemo
+} = React;
+const uid = () => Math.random().toString(36).slice(2) + Date.now().toString(36);
+const money = n => n < 0 ? "-$" + Math.abs(n).toFixed(2) : "$" + n.toFixed(2);
+
+// ---------- kvdb.io sync backend (no signup needed) ----------
+async function kvdbCreateBucket() {
+  try {
+    const res = await fetch("https://kvdb.io/", {
+      method: "POST"
+    });
+    if (!res.ok) return {
+      ok: false,
+      message: `Couldn't reach the sync service (HTTP ${res.status}).`
+    };
+    const id = (await res.text()).trim();
+    if (!id || id.length > 64 || /\s/.test(id)) return {
+      ok: false,
+      message: "Sync service returned an unexpected response."
+    };
+    return {
+      ok: true,
+      bucket: id
+    };
+  } catch (e) {
+    return {
+      ok: false,
+      message: "Couldn't reach the sync service — check your internet connection."
+    };
+  }
+}
+async function kvdbGet(bucket, key) {
+  try {
+    const res = await fetch(`https://kvdb.io/${bucket}/${key}`);
+    if (res.status === 404) return {
+      ok: true,
+      value: null
+    };
+    if (!res.ok) return {
+      ok: false,
+      message: `Sync read failed (HTTP ${res.status}).`
+    };
+    const text = await res.text();
+    return {
+      ok: true,
+      value: text ? JSON.parse(text) : null
+    };
+  } catch (e) {
+    return {
+      ok: false,
+      message: "Couldn't reach the sync service — check your internet connection."
+    };
+  }
+}
+async function kvdbPut(bucket, key, value) {
+  try {
+    const res = await fetch(`https://kvdb.io/${bucket}/${key}`, {
+      method: "PUT",
+      body: JSON.stringify(value)
+    });
+    if (!res.ok) return {
+      ok: false,
+      message: `Sync save failed (HTTP ${res.status}).`
+    };
+    return {
+      ok: true
+    };
+  } catch (e) {
+    return {
+      ok: false,
+      message: "Couldn't save — check your internet connection."
+    };
+  }
+}
+
+// ---------- local per-device identity + leaderboard history ----------
+const ROLE_KEY = "pokerRole";
+const HISTORY_KEY = "pokiriKurrolluHistory";
+function loadRole() {
+  try {
+    const raw = localStorage.getItem(ROLE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+function saveRole(role) {
+  try {
+    localStorage.setItem(ROLE_KEY, JSON.stringify(role));
+  } catch {}
+}
+function clearRole() {
+  try {
+    localStorage.removeItem(ROLE_KEY);
+  } catch {}
+}
+function loadHistory() {
+  try {
+    const raw = localStorage.getItem(HISTORY_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return null;
+  }
+}
+function saveHistory(history) {
+  try {
+    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+    return true;
+  } catch {
+    return false;
+  }
+}
+function buyInTotal(buyins) {
+  return buyins.reduce((s, b) => s + b.amount, 0);
+}
+function buildSummaryText(game, nets, transactions) {
+  const lines = [];
+  lines.push(`${game.name} — Settlement`);
+  lines.push(new Date().toLocaleString());
+  lines.push("");
+  lines.push("Results:");
+  Object.values(game.players).forEach(p => {
+    const net = nets[p.id];
+    lines.push(`  ${p.name}: ${net >= 0 ? "+" : ""}${money(net)}`);
+  });
+  lines.push("");
+  if (transactions.length === 0) {
+    lines.push("Everyone's even — no payments needed.");
+  } else {
+    lines.push("Who pays who:");
+    transactions.forEach(t => {
+      const from = game.players[t.from],
+        to = game.players[t.to];
+      const toPhone = to.phone ? ` (${to.phone})` : "";
+      lines.push(`  ${from.name} pays ${to.name}${toPhone}: ${money(t.amount)}`);
+    });
+  }
+  return lines.join("\n");
+}
+function settleDebts(nets) {
+  const creditors = [],
+    debtors = [];
+  Object.entries(nets).forEach(([id, amt]) => {
+    const cents = Math.round(amt * 100);
+    if (cents > 0) creditors.push({
+      id,
+      cents
+    });else if (cents < 0) debtors.push({
+      id,
+      cents: -cents
+    });
+  });
+  creditors.sort((a, b) => b.cents - a.cents);
+  debtors.sort((a, b) => b.cents - a.cents);
+  const txns = [];
+  let i = 0,
+    j = 0;
+  while (i < debtors.length && j < creditors.length) {
+    const d = debtors[i],
+      c = creditors[j];
+    const amt = Math.min(d.cents, c.cents);
+    if (amt > 0) txns.push({
+      from: d.id,
+      to: c.id,
+      cents: amt
+    });
+    d.cents -= amt;
+    c.cents -= amt;
+    if (d.cents === 0) i++;
+    if (c.cents === 0) j++;
+  }
+  return txns.map(t => ({
+    from: t.from,
+    to: t.to,
+    amount: t.cents / 100
+  }));
+}
+
+// ---------- inline QR encoder (no network/script loading required) ----------
+const QRLib = function () {
+  const QRMath = function () {
+    const EXP = new Array(256),
+      LOG = new Array(256);
+    for (let i = 0; i < 8; i++) EXP[i] = 1 << i;
+    for (let i = 8; i < 256; i++) EXP[i] = EXP[i - 4] ^ EXP[i - 5] ^ EXP[i - 6] ^ EXP[i - 8];
+    for (let i = 0; i < 255; i++) LOG[EXP[i]] = i;
+    return {
+      glog: n => LOG[n],
+      gexp: n => {
+        while (n < 0) n += 255;
+        while (n >= 256) n -= 255;
+        return EXP[n];
+      }
+    };
+  }();
+  function Poly(num, shift) {
+    let offset = 0;
+    while (offset < num.length && num[offset] === 0) offset++;
+    const _num = new Array(num.length - offset + shift).fill(0);
+    for (let i = 0; i < num.length - offset; i++) _num[i] = num[i + offset];
+    return {
+      get: i => _num[i],
+      len: () => _num.length,
+      multiply(e) {
+        const out = new Array(this.len() + e.len() - 1).fill(0);
+        for (let i = 0; i < this.len(); i++) for (let j = 0; j < e.len(); j++) out[i + j] ^= QRMath.gexp(QRMath.glog(this.get(i)) + QRMath.glog(e.get(j)));
+        return Poly(out, 0);
+      },
+      mod(e) {
+        if (this.len() - e.len() < 0) return this;
+        const ratio = QRMath.glog(this.get(0)) - QRMath.glog(e.get(0));
+        const out = new Array(this.len());
+        for (let i = 0; i < this.len(); i++) out[i] = this.get(i);
+        for (let i = 0; i < e.len(); i++) out[i] ^= QRMath.gexp(QRMath.glog(e.get(i)) + ratio);
+        return Poly(out, 0).mod(e);
+      }
+    };
+  }
+  const PATTERN_POS = [[], [6, 18], [6, 22], [6, 26], [6, 30], [6, 34], [6, 22, 38], [6, 24, 42], [6, 26, 46], [6, 28, 50], [6, 30, 54], [6, 32, 58], [6, 34, 62], [6, 26, 46, 66], [6, 26, 48, 70], [6, 26, 50, 74], [6, 30, 54, 78], [6, 30, 56, 82], [6, 30, 58, 86], [6, 34, 62, 90], [6, 28, 50, 72, 94], [6, 26, 50, 74, 98], [6, 30, 54, 78, 102], [6, 28, 54, 80, 106], [6, 32, 58, 84, 110], [6, 30, 58, 86, 114], [6, 34, 62, 90, 118], [6, 26, 50, 74, 98, 122], [6, 30, 54, 78, 102, 126], [6, 26, 52, 78, 104, 130], [6, 30, 56, 82, 108, 134], [6, 34, 60, 86, 112, 138], [6, 30, 58, 86, 114, 142], [6, 34, 62, 90, 118, 146], [6, 30, 54, 78, 102, 126, 150], [6, 24, 50, 76, 102, 128, 154], [6, 28, 54, 80, 106, 132, 158], [6, 32, 58, 84, 110, 136, 162], [6, 26, 54, 82, 110, 138, 166], [6, 30, 58, 86, 114, 142, 170]];
+  const G15 = 1 << 10 | 1 << 8 | 1 << 5 | 1 << 4 | 1 << 2 | 1 << 1 | 1;
+  const G18 = 1 << 12 | 1 << 11 | 1 << 10 | 1 << 9 | 1 << 8 | 1 << 5 | 1 << 2 | 1;
+  const G15_MASK = 1 << 14 | 1 << 12 | 1 << 10 | 1 << 4 | 1 << 1;
+  function bchDigit(d) {
+    let n = 0;
+    while (d !== 0) {
+      n++;
+      d >>>= 1;
+    }
+    return n;
+  }
+  const QRUtil = {
+    getBCHTypeInfo(data) {
+      let d = data << 10;
+      while (bchDigit(d) - bchDigit(G15) >= 0) d ^= G15 << bchDigit(d) - bchDigit(G15);
+      return (data << 10 | d) ^ G15_MASK;
+    },
+    getBCHTypeNumber(data) {
+      let d = data << 12;
+      while (bchDigit(d) - bchDigit(G18) >= 0) d ^= G18 << bchDigit(d) - bchDigit(G18);
+      return data << 12 | d;
+    },
+    getPatternPosition: t => PATTERN_POS[t - 1],
+    getMaskFunction(p) {
+      switch (p) {
+        case 0:
+          return (i, j) => (i + j) % 2 === 0;
+        case 1:
+          return i => i % 2 === 0;
+        case 2:
+          return (i, j) => j % 3 === 0;
+        case 3:
+          return (i, j) => (i + j) % 3 === 0;
+        case 4:
+          return (i, j) => (Math.floor(i / 2) + Math.floor(j / 3)) % 2 === 0;
+        case 5:
+          return (i, j) => i * j % 2 + i * j % 3 === 0;
+        case 6:
+          return (i, j) => (i * j % 2 + i * j % 3) % 2 === 0;
+        case 7:
+          return (i, j) => (i * j % 3 + (i + j) % 2) % 2 === 0;
+        default:
+          throw new Error("bad mask");
+      }
+    },
+    getErrorCorrectPolynomial(len) {
+      let a = Poly([1], 0);
+      for (let i = 0; i < len; i++) a = a.multiply(Poly([1, QRMath.gexp(i)], 0));
+      return a;
+    },
+    getLengthInBits(type) {
+      return type < 10 ? 8 : 16;
+    },
+    getLostPoint(qr) {
+      const n = qr.getModuleCount();
+      let lost = 0;
+      for (let row = 0; row < n; row++) for (let col = 0; col < n; col++) {
+        let same = 0;
+        const dark = qr.isDark(row, col);
+        for (let r = -1; r <= 1; r++) for (let c = -1; c <= 1; c++) {
+          if (row + r < 0 || n <= row + r || col + c < 0 || n <= col + c || r === 0 && c === 0) continue;
+          if (dark === qr.isDark(row + r, col + c)) same++;
+        }
+        if (same > 5) lost += 3 + same - 5;
+      }
+      for (let row = 0; row < n - 1; row++) for (let col = 0; col < n - 1; col++) {
+        let cnt = 0;
+        if (qr.isDark(row, col)) cnt++;
+        if (qr.isDark(row + 1, col)) cnt++;
+        if (qr.isDark(row, col + 1)) cnt++;
+        if (qr.isDark(row + 1, col + 1)) cnt++;
+        if (cnt === 0 || cnt === 4) lost += 3;
+      }
+      for (let row = 0; row < n; row++) for (let col = 0; col < n - 6; col++) {
+        if (qr.isDark(row, col) && !qr.isDark(row, col + 1) && qr.isDark(row, col + 2) && qr.isDark(row, col + 3) && qr.isDark(row, col + 4) && !qr.isDark(row, col + 5) && qr.isDark(row, col + 6)) lost += 40;
+      }
+      for (let col = 0; col < n; col++) for (let row = 0; row < n - 6; row++) {
+        if (qr.isDark(row, col) && !qr.isDark(row + 1, col) && qr.isDark(row + 2, col) && qr.isDark(row + 3, col) && qr.isDark(row + 4, col) && !qr.isDark(row + 5, col) && qr.isDark(row + 6, col)) lost += 40;
+      }
+      let dark = 0;
+      for (let col = 0; col < n; col++) for (let row = 0; row < n; row++) if (qr.isDark(row, col)) dark++;
+      lost += Math.abs(100 * dark / n / n - 50) / 5 * 10;
+      return lost;
+    }
+  };
+  const RS_BLOCK_TABLE = [[1, 26, 19], [1, 26, 16], [1, 26, 13], [1, 26, 9], [1, 44, 34], [1, 44, 28], [1, 44, 22], [1, 44, 16], [1, 70, 55], [1, 70, 44], [2, 35, 17], [2, 35, 13], [1, 100, 80], [2, 50, 32], [2, 50, 24], [4, 25, 9], [1, 134, 108], [2, 67, 43], [2, 33, 15, 2, 34, 16], [2, 33, 11, 2, 34, 12], [2, 86, 68], [4, 43, 27], [4, 43, 19], [4, 43, 15], [2, 98, 78], [4, 49, 31], [2, 32, 14, 4, 33, 15], [4, 39, 13, 1, 40, 14], [2, 121, 97], [2, 60, 38, 2, 61, 39], [4, 40, 18, 2, 41, 19], [4, 40, 14, 2, 41, 15], [2, 146, 116], [3, 58, 36, 2, 59, 37], [4, 36, 16, 4, 37, 17], [4, 36, 12, 4, 37, 13], [2, 86, 68, 2, 87, 69], [4, 69, 43, 1, 70, 44], [6, 43, 19, 2, 44, 20], [6, 43, 15, 2, 44, 16], [4, 101, 81], [1, 80, 50, 4, 81, 51], [4, 50, 22, 4, 51, 23], [3, 36, 12, 8, 37, 13], [2, 116, 92, 2, 117, 93], [6, 58, 36, 2, 59, 37], [4, 46, 20, 6, 47, 21], [7, 42, 14, 4, 43, 15], [4, 133, 107], [8, 59, 37, 1, 60, 38], [8, 44, 20, 4, 45, 21], [12, 33, 11, 4, 34, 12], [3, 145, 115, 1, 146, 116], [4, 64, 40, 5, 65, 41], [11, 36, 16, 5, 37, 17], [11, 36, 12, 5, 37, 13], [5, 109, 87, 1, 110, 88], [5, 65, 41, 5, 66, 42], [5, 54, 24, 7, 55, 25], [11, 36, 12, 7, 37, 13], [5, 122, 98, 1, 123, 99], [7, 73, 45, 3, 74, 46], [15, 43, 19, 2, 44, 20], [3, 45, 15, 13, 46, 16], [1, 135, 107, 5, 136, 108], [10, 74, 46, 1, 75, 47], [1, 50, 22, 15, 51, 23], [2, 42, 14, 17, 43, 15], [5, 150, 120, 1, 151, 121], [9, 69, 43, 4, 70, 44], [17, 50, 22, 1, 51, 23], [2, 42, 14, 19, 43, 15], [3, 141, 113, 4, 142, 114], [3, 70, 44, 11, 71, 45], [17, 47, 21, 4, 48, 22], [9, 39, 13, 16, 40, 14], [3, 135, 107, 5, 136, 108], [3, 67, 41, 13, 68, 42], [15, 54, 24, 5, 55, 25], [15, 43, 15, 10, 44, 16], [4, 144, 116, 4, 145, 117], [17, 68, 42], [17, 50, 22, 6, 51, 23], [19, 46, 16, 6, 47, 17], [2, 139, 111, 7, 140, 112], [17, 74, 46], [7, 54, 24, 16, 55, 25], [34, 37, 13], [4, 151, 121, 5, 152, 122], [4, 75, 47, 14, 76, 48], [11, 54, 24, 14, 55, 25], [16, 45, 15, 14, 46, 16], [6, 147, 117, 4, 148, 118], [6, 73, 45, 14, 74, 46], [11, 54, 24, 16, 55, 25], [30, 46, 16, 2, 47, 17], [8, 132, 106, 4, 133, 107], [8, 75, 47, 13, 76, 48], [7, 54, 24, 22, 55, 25], [22, 45, 15, 13, 46, 16], [10, 142, 114, 2, 143, 115], [19, 74, 46, 4, 75, 47], [28, 50, 22, 6, 51, 23], [33, 46, 16, 4, 47, 17], [8, 152, 122, 4, 153, 123], [22, 73, 45, 3, 74, 46], [8, 53, 23, 26, 54, 24], [12, 45, 15, 28, 46, 16], [3, 147, 117, 10, 148, 118], [3, 73, 45, 23, 74, 46], [4, 54, 24, 31, 55, 25], [11, 45, 15, 31, 46, 16], [7, 146, 116, 7, 147, 117], [21, 73, 45, 7, 74, 46], [1, 53, 23, 37, 54, 24], [19, 45, 15, 26, 46, 16], [5, 145, 115, 10, 146, 116], [19, 75, 47, 10, 76, 48], [15, 54, 24, 25, 55, 25], [23, 45, 15, 25, 46, 16], [13, 145, 115, 3, 146, 116], [2, 74, 46, 29, 75, 47], [42, 54, 24, 1, 55, 25], [23, 45, 15, 28, 46, 16], [17, 145, 115], [10, 74, 46, 23, 75, 47], [10, 54, 24, 35, 55, 25], [19, 45, 15, 35, 46, 16], [17, 145, 115, 1, 146, 116], [14, 74, 46, 21, 75, 47], [29, 54, 24, 19, 55, 25], [11, 45, 15, 46, 46, 16], [13, 145, 115, 6, 146, 116], [14, 74, 46, 23, 75, 47], [44, 54, 24, 7, 55, 25], [59, 46, 16, 1, 47, 17], [12, 151, 121, 7, 152, 122], [12, 75, 47, 26, 76, 48], [39, 54, 24, 14, 55, 25], [22, 45, 15, 41, 46, 16], [6, 151, 121, 14, 152, 122], [6, 75, 47, 34, 76, 48], [46, 54, 24, 10, 55, 25], [2, 45, 15, 64, 46, 16], [17, 152, 122, 4, 153, 123], [29, 74, 46, 14, 75, 47], [49, 54, 24, 10, 55, 25], [24, 45, 15, 46, 46, 16], [4, 152, 122, 18, 153, 123], [13, 74, 46, 32, 75, 47], [48, 54, 24, 14, 55, 25], [42, 45, 15, 32, 46, 16], [20, 147, 117, 4, 148, 118], [40, 75, 47, 7, 76, 48], [43, 54, 24, 22, 55, 25], [10, 45, 15, 67, 46, 16], [19, 148, 118, 6, 149, 119], [18, 75, 47, 31, 76, 48], [34, 54, 24, 34, 55, 25], [20, 45, 15, 61, 46, 16]];
+  const EC_INDEX = {
+    L: 0,
+    M: 1,
+    Q: 2,
+    H: 3
+  };
+  function getRSBlocks(typeNumber, ecLevel) {
+    const row = RS_BLOCK_TABLE[(typeNumber - 1) * 4 + EC_INDEX[ecLevel]];
+    if (!row) throw new Error("bad rs block");
+    const list = [];
+    for (let i = 0; i < row.length / 3; i++) {
+      const count = row[i * 3],
+        total = row[i * 3 + 1],
+        dc = row[i * 3 + 2];
+      for (let j = 0; j < count; j++) list.push({
+        totalCount: total,
+        dataCount: dc
+      });
+    }
+    return list;
+  }
+  function BitBuffer() {
+    let buffer = [],
+      length = 0;
+    return {
+      getBuffer: () => buffer,
+      getLengthInBits: () => length,
+      putBit(bit) {
+        const idx = Math.floor(length / 8);
+        if (buffer.length <= idx) buffer.push(0);
+        if (bit) buffer[idx] |= 0x80 >>> length % 8;
+        length++;
+      },
+      put(num, len) {
+        for (let i = 0; i < len; i++) this.putBit((num >>> len - i - 1 & 1) === 1);
+      }
+    };
+  }
+  function stringToBytes(s) {
+    return Array.from(unescape(encodeURIComponent(s))).map(c => c.charCodeAt(0) & 0xff);
+  }
+  const EC_LEVEL_NUM = {
+    L: 1,
+    M: 0,
+    Q: 3,
+    H: 2
+  };
+  function makeQR(typeNumber, ecLevel, text) {
+    const moduleCount = typeNumber * 4 + 17;
+    const modules = Array.from({
+      length: moduleCount
+    }, () => new Array(moduleCount).fill(null));
+    function setupPositionProbePattern(row, col) {
+      for (let r = -1; r <= 7; r++) {
+        if (row + r <= -1 || moduleCount <= row + r) continue;
+        for (let c = -1; c <= 7; c++) {
+          if (col + c <= -1 || moduleCount <= col + c) continue;
+          modules[row + r][col + c] = 0 <= r && r <= 6 && (c === 0 || c === 6) || 0 <= c && c <= 6 && (r === 0 || r === 6) || 2 <= r && r <= 4 && 2 <= c && c <= 4;
+        }
+      }
+    }
+    function setupTimingPattern() {
+      for (let r = 8; r < moduleCount - 8; r++) if (modules[r][6] === null) modules[r][6] = r % 2 === 0;
+      for (let c = 8; c < moduleCount - 8; c++) if (modules[6][c] === null) modules[6][c] = c % 2 === 0;
+    }
+    function setupPositionAdjustPattern() {
+      const pos = QRUtil.getPatternPosition(typeNumber);
+      for (let i = 0; i < pos.length; i++) for (let j = 0; j < pos.length; j++) {
+        const row = pos[i],
+          col = pos[j];
+        if (modules[row][col] !== null) continue;
+        for (let r = -2; r <= 2; r++) for (let c = -2; c <= 2; c++) {
+          modules[row + r][col + c] = r === -2 || r === 2 || c === -2 || c === 2 || r === 0 && c === 0;
+        }
+      }
+    }
+    function setupTypeNumber(test) {
+      const bits = QRUtil.getBCHTypeNumber(typeNumber);
+      for (let i = 0; i < 18; i++) {
+        const mod = !test && (bits >> i & 1) === 1;
+        modules[Math.floor(i / 3)][i % 3 + moduleCount - 8 - 3] = mod;
+      }
+      for (let i = 0; i < 18; i++) {
+        const mod = !test && (bits >> i & 1) === 1;
+        modules[i % 3 + moduleCount - 8 - 3][Math.floor(i / 3)] = mod;
+      }
+    }
+    function setupTypeInfo(test, maskPattern) {
+      const data = EC_LEVEL_NUM[ecLevel] << 3 | maskPattern;
+      const bits = QRUtil.getBCHTypeInfo(data);
+      for (let i = 0; i < 15; i++) {
+        const mod = !test && (bits >> i & 1) === 1;
+        if (i < 6) modules[i][8] = mod;else if (i < 8) modules[i + 1][8] = mod;else modules[moduleCount - 15 + i][8] = mod;
+      }
+      for (let i = 0; i < 15; i++) {
+        const mod = !test && (bits >> i & 1) === 1;
+        if (i < 8) modules[8][moduleCount - i - 1] = mod;else if (i < 9) modules[8][15 - i - 1 + 1] = mod;else modules[8][15 - i - 1] = mod;
+      }
+      modules[moduleCount - 8][8] = !test;
+    }
+    function createData() {
+      const rsBlocks = getRSBlocks(typeNumber, ecLevel);
+      const buffer = BitBuffer();
+      const bytes = stringToBytes(text);
+      buffer.put(QRMode_8BIT, 4);
+      buffer.put(bytes.length, QRUtil.getLengthInBits(typeNumber));
+      for (let i = 0; i < bytes.length; i++) buffer.put(bytes[i], 8);
+      let totalDataCount = 0;
+      for (let i = 0; i < rsBlocks.length; i++) totalDataCount += rsBlocks[i].dataCount;
+      if (buffer.getLengthInBits() > totalDataCount * 8) throw new Error("overflow");
+      if (buffer.getLengthInBits() + 4 <= totalDataCount * 8) buffer.put(0, 4);
+      while (buffer.getLengthInBits() % 8 !== 0) buffer.putBit(false);
+      while (true) {
+        if (buffer.getLengthInBits() >= totalDataCount * 8) break;
+        buffer.put(0xEC, 8);
+        if (buffer.getLengthInBits() >= totalDataCount * 8) break;
+        buffer.put(0x11, 8);
+      }
+      let offset = 0,
+        maxDc = 0,
+        maxEc = 0;
+      const dcdata = new Array(rsBlocks.length),
+        ecdata = new Array(rsBlocks.length);
+      for (let r = 0; r < rsBlocks.length; r++) {
+        const dcCount = rsBlocks[r].dataCount,
+          ecCount = rsBlocks[r].totalCount - dcCount;
+        maxDc = Math.max(maxDc, dcCount);
+        maxEc = Math.max(maxEc, ecCount);
+        dcdata[r] = new Array(dcCount);
+        for (let i = 0; i < dcdata[r].length; i++) dcdata[r][i] = 0xff & buffer.getBuffer()[i + offset];
+        offset += dcCount;
+        const rsPoly = QRUtil.getErrorCorrectPolynomial(ecCount);
+        const rawPoly = Poly(dcdata[r], rsPoly.len() - 1);
+        const modPoly = rawPoly.mod(rsPoly);
+        ecdata[r] = new Array(rsPoly.len() - 1);
+        for (let i = 0; i < ecdata[r].length; i++) {
+          const idx = i + modPoly.len() - ecdata[r].length;
+          ecdata[r][i] = idx >= 0 ? modPoly.get(idx) : 0;
+        }
+      }
+      let totalCodeCount = 0;
+      for (let i = 0; i < rsBlocks.length; i++) totalCodeCount += rsBlocks[i].totalCount;
+      const data = new Array(totalCodeCount);
+      let index = 0;
+      for (let i = 0; i < maxDc; i++) for (let r = 0; r < rsBlocks.length; r++) if (i < dcdata[r].length) data[index++] = dcdata[r][i];
+      for (let i = 0; i < maxEc; i++) for (let r = 0; r < rsBlocks.length; r++) if (i < ecdata[r].length) data[index++] = ecdata[r][i];
+      return data;
+    }
+    const QRMode_8BIT = 4;
+    function mapData(data, maskPattern) {
+      let inc = -1,
+        row = moduleCount - 1,
+        bitIndex = 7,
+        byteIndex = 0;
+      const maskFunc = QRUtil.getMaskFunction(maskPattern);
+      for (let col = moduleCount - 1; col > 0; col -= 2) {
+        if (col === 6) col -= 1;
+        while (true) {
+          for (let c = 0; c < 2; c++) {
+            if (modules[row][col - c] === null) {
+              let dark = false;
+              if (byteIndex < data.length) dark = (data[byteIndex] >>> bitIndex & 1) === 1;
+              if (maskFunc(row, col - c)) dark = !dark;
+              modules[row][col - c] = dark;
+              bitIndex--;
+              if (bitIndex === -1) {
+                byteIndex++;
+                bitIndex = 7;
+              }
+            }
+          }
+          row += inc;
+          if (row < 0 || moduleCount <= row) {
+            row -= inc;
+            inc = -inc;
+            break;
+          }
+        }
+      }
+    }
+    let dataCache = null;
+    const qr = {
+      getModuleCount: () => moduleCount,
+      isDark: (r, c) => modules[r][c]
+    };
+    function makeImpl(test, maskPattern) {
+      for (let r = 0; r < moduleCount; r++) for (let c = 0; c < moduleCount; c++) modules[r][c] = null;
+      setupPositionProbePattern(0, 0);
+      setupPositionProbePattern(moduleCount - 7, 0);
+      setupPositionProbePattern(0, moduleCount - 7);
+      setupPositionAdjustPattern();
+      setupTimingPattern();
+      setupTypeInfo(test, maskPattern);
+      if (typeNumber >= 7) setupTypeNumber(test);
+      if (dataCache === null) dataCache = createData();
+      mapData(dataCache, maskPattern);
+    }
+    function getBestMaskPattern() {
+      let minLost = 0,
+        pattern = 0;
+      for (let i = 0; i < 8; i++) {
+        makeImpl(true, i);
+        const lost = QRUtil.getLostPoint(qr);
+        if (i === 0 || minLost > lost) {
+          minLost = lost;
+          pattern = i;
+        }
+      }
+      return pattern;
+    }
+    makeImpl(false, getBestMaskPattern());
+    return qr;
+  }
+  function generate(text, ecLevel) {
+    ecLevel = ecLevel || "M";
+    let lastErr = null;
+    for (let type = 1; type <= 40; type++) {
+      try {
+        return makeQR(type, ecLevel, text);
+      } catch (e) {
+        lastErr = e;
+      }
+    }
+    throw lastErr || new Error("QR generation failed");
+  }
+  return {
+    generate
+  };
+}();
+function QRCode({
+  text,
+  size = 200
+}) {
+  const cells = useMemo(() => {
+    try {
+      const qr = QRLib.generate(text, "M");
+      const count = qr.getModuleCount();
+      const dark = [];
+      for (let r = 0; r < count; r++) for (let c = 0; c < count; c++) if (qr.isDark(r, c)) dark.push([r, c]);
+      return {
+        count,
+        dark
+      };
+    } catch {
+      return null;
+    }
+  }, [text]);
+  if (!cells) {
+    return /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: size,
+        height: size
+      },
+      className: "bg-felt-800 rounded-2xl flex items-center justify-center p-4"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "font-mono text-coral-400 text-xs text-center"
+    }, "Couldn't generate QR — use the code below instead."));
+  }
+  const cellSize = size / cells.count;
+  return /*#__PURE__*/React.createElement("div", {
+    className: "bg-bone p-3 rounded-2xl inline-block"
+  }, /*#__PURE__*/React.createElement("svg", {
+    width: size,
+    height: size,
+    viewBox: `0 0 ${size} ${size}`
+  }, cells.dark.map(([r, c], i) => /*#__PURE__*/React.createElement("rect", {
+    key: i,
+    x: c * cellSize,
+    y: r * cellSize,
+    width: cellSize + 0.6,
+    height: cellSize + 0.6,
+    fill: "#181713"
+  }))));
+}
+
+// ---------- chip visual ----------
+function ChipStack({
+  count,
+  max
+}) {
+  const shown = Math.min(count, 12);
+  const pct = max > 0 ? Math.max(count / max * 100, count > 0 ? 6 : 0) : 0;
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-center justify-between gap-3"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "flex items-baseline gap-1.5 shrink-0"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "font-display font-bold text-gold-300 text-3xl tabular-nums leading-none"
+  }, count), /*#__PURE__*/React.createElement("span", {
+    className: "font-mono text-smoke text-xs"
+  }, count === 1 ? "buy-in" : "buy-ins")), count > 0 && /*#__PURE__*/React.createElement("div", {
+    className: "flex flex-wrap gap-1 justify-end max-w-[60%]"
+  }, Array.from({
+    length: shown
+  }).map((_, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    className: "w-3.5 h-3.5 rounded-full border border-gold-200/60 animate-chip-pop",
+    style: {
+      background: "radial-gradient(circle at 35% 30%, #f6d998, #e8b23d 55%, #c89430 100%)",
+      boxShadow: "0 1px 2px rgba(0,0,0,0.35)"
+    }
+  })), count > 12 && /*#__PURE__*/React.createElement("span", {
+    className: "font-mono text-xs text-gold-300 self-center ml-0.5"
+  }, "+", count - 12))), /*#__PURE__*/React.createElement("div", {
+    className: "h-2 rounded-full bg-felt-800 mt-2.5 overflow-hidden"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "h-full rounded-full bg-gradient-to-r from-gold-500 to-gold-300 transition-all duration-500 ease-out",
+    style: {
+      width: `${pct}%`
+    }
+  })));
+}
+const fontStyle = /*#__PURE__*/React.createElement("style", null, `
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .font-display { font-family: 'Space Grotesk', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; font-variant-numeric: tabular-nums; }
+  `);
+function Pill({
+  children,
+  className = ""
+}) {
+  return /*#__PURE__*/React.createElement("span", {
+    className: `inline-flex items-center rounded-full px-3 py-1 text-xs font-mono ${className}`
+  }, children);
+}
+function PokerLedger() {
+  const [screen, setScreen] = useState("loading"); // loading | home | create | join | game | leaderboard
+  const [role, setRole] = useState(null); // {code, playerId, isHost}
+  const [game, setGame] = useState(null);
+  const [error, setError] = useState("");
+  const pollRef = useRef(null);
+  const [showQR, setShowQR] = useState(false);
+  const [cName, setCName] = useState("");
+  const [cBuyIn, setCBuyIn] = useState("40");
+  const [cRate, setCRate] = useState("1");
+  const [cHostName, setCHostName] = useState("");
+  const [cHostPhone, setCHostPhone] = useState("");
+  const [creating, setCreating] = useState(false);
+  const [jCode, setJCode] = useState("");
+  const [jName, setJName] = useState("");
+  const [jPhone, setJPhone] = useState("");
+  const [joining, setJoining] = useState(false);
+  const [finalInput, setFinalInput] = useState("");
+
+  // own-row controls (only ever apply to role.playerId's own card)
+  const [showBuyInLog, setShowBuyInLog] = useState(false);
+  const [editingName, setEditingName] = useState(false);
+  const [nameInput, setNameInput] = useState("");
+  const [cashingOut, setCashingOut] = useState(false);
+  const [cashOutAmount, setCashOutAmount] = useState("");
+  const [customBuyIn, setCustomBuyIn] = useState(false);
+  const [customAmount, setCustomAmount] = useState("");
+  const [history, setHistory] = useState([]);
+  const [storageOK, setStorageOK] = useState(true);
+  const [confirmingClear, setConfirmingClear] = useState(false);
+  const [importStatus, setImportStatus] = useState("");
+  const importFileRef = useRef(null);
+  useEffect(() => {
+    const h = loadHistory();
+    if (h === null) setStorageOK(false);else setHistory(h);
+  }, []);
+  function recordGameResult(entry) {
+    setHistory(prev => {
+      const idx = prev.findIndex(h => h.id === entry.id);
+      const next = idx >= 0 ? [...prev.slice(0, idx), entry, ...prev.slice(idx + 1)] : [...prev, entry];
+      if (!saveHistory(next)) setStorageOK(false);
+      return next;
+    });
+  }
+  function clearHistory() {
+    setHistory([]);
+    saveHistory([]);
+    setConfirmingClear(false);
+  }
+  function exportHistory() {
+    const blob = new Blob([JSON.stringify(history, null, 2)], {
+      type: "application/json"
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `poker-ledger-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }
+  function importHistoryFile(e) {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const imported = JSON.parse(reader.result);
+        if (!Array.isArray(imported)) throw new Error("not an array");
+        setHistory(prev => {
+          const map = {};
+          prev.forEach(h => {
+            map[h.id] = h;
+          });
+          imported.forEach(h => {
+            if (h && h.id) map[h.id] = h;
+          });
+          const merged = Object.values(map);
+          if (!saveHistory(merged)) setStorageOK(false);
+          return merged;
+        });
+        setImportStatus(`Imported ${imported.length} game(s) — merged with existing history.`);
+      } catch {
+        setImportStatus("Couldn't read that file — make sure it's a Poker Ledger backup JSON.");
+      }
+      setTimeout(() => setImportStatus(""), 4000);
+      if (importFileRef.current) importFileRef.current.value = "";
+    };
+    reader.readAsText(file);
+  }
+  const leaderboard = useMemo(() => {
+    const map = {};
+    history.forEach(h => h.players.forEach(p => {
+      const key = p.name.trim().toLowerCase();
+      if (!map[key]) map[key] = {
+        name: p.name.trim(),
+        games: 0,
+        net: 0,
+        wins: 0,
+        losses: 0,
+        best: 0,
+        worst: 0
+      };
+      const e = map[key];
+      e.games += 1;
+      e.net = Math.round((e.net + p.net) * 100) / 100;
+      if (p.net > 0.001) e.wins += 1;else if (p.net < -0.001) e.losses += 1;
+      e.best = Math.max(e.best, p.net);
+      e.worst = Math.min(e.worst, p.net);
+    }));
+    return Object.values(map).sort((a, b) => b.net - a.net);
+  }, [history]);
+  const recentGames = useMemo(() => [...history].sort((a, b) => new Date(b.date) - new Date(a.date)), [history]);
+
+  // ---------- bootstrap ----------
+  useEffect(() => {
+    (async () => {
+      const r = loadRole();
+      if (r && r.code) {
+        const res = await kvdbGet(r.code, "game");
+        if (res.ok && res.value) {
+          setRole(r);
+          setGame(res.value);
+          setScreen("game");
+          return;
+        }
+      }
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const codeParam = params.get("code");
+        if (codeParam) {
+          setJCode(codeParam.toUpperCase());
+          setScreen("join");
+          return;
+        }
+      } catch {}
+      setScreen("home");
+    })();
+  }, []);
+
+  // ---------- polling for live sync ----------
+  useEffect(() => {
+    if (screen === "game" && role) {
+      pollRef.current = setInterval(async () => {
+        const res = await kvdbGet(role.code, "game");
+        if (res.ok && res.value) setGame(res.value);
+      }, 2500);
+      return () => clearInterval(pollRef.current);
+    }
+  }, [screen, role]);
+  const refresh = useCallback(async () => {
+    if (role) {
+      const res = await kvdbGet(role.code, "game");
+      if (res.ok && res.value) setGame(res.value);
+    }
+  }, [role]);
+  async function mutateGame(mutator) {
+    let base = game;
+    if (!base) {
+      const res = await kvdbGet(role.code, "game");
+      if (!res.ok || !res.value) {
+        setError("Couldn't reach the game. Check your connection and try again.");
+        return;
+      }
+      base = res.value;
+    }
+    const next = JSON.parse(JSON.stringify(base));
+    mutator(next);
+    setGame(next);
+    const res = await kvdbPut(role.code, "game", next);
+    if (!res.ok) setError(`That didn't save: ${res.message}`);
+  }
+  async function handleCreate() {
+    setError("");
+    const buyIn = parseFloat(cBuyIn),
+      rate = parseFloat(cRate);
+    if (!cName.trim()) return setError("Give the game a name.");
+    if (!buyIn || buyIn <= 0) return setError("Buy-in amount must be a positive number.");
+    if (!rate || rate <= 0) return setError("Chips-per-dollar must be a positive number.");
+    if (!cHostName.trim()) return setError("Enter your name.");
+    setCreating(true);
+    const bucketRes = await kvdbCreateBucket();
+    if (!bucketRes.ok) {
+      setCreating(false);
+      return setError(bucketRes.message);
+    }
+    const code = bucketRes.bucket;
+    const playerId = uid();
+    const newGame = {
+      code,
+      name: cName.trim(),
+      buyInAmount: buyIn,
+      chipsPerDollar: rate,
+      hostId: playerId,
+      phase: "active",
+      players: {
+        [playerId]: {
+          id: playerId,
+          name: cHostName.trim(),
+          phone: cHostPhone.trim(),
+          buyins: [{
+            id: uid(),
+            ts: Date.now(),
+            amount: buyIn
+          }],
+          cashedOut: false,
+          finalChips: null
+        }
+      },
+      settlement: null
+    };
+    const saveRes = await kvdbPut(code, "game", newGame);
+    setCreating(false);
+    if (!saveRes.ok) return setError(`Couldn't save the game: ${saveRes.message}`);
+    const r = {
+      code,
+      playerId,
+      isHost: true
+    };
+    saveRole(r);
+    setRole(r);
+    setGame(newGame);
+    setScreen("game");
+  }
+  async function handleJoin() {
+    setError("");
+    const code = jCode.trim();
+    if (!code) return setError("Enter the game code.");
+    if (!jName.trim()) return setError("Enter your name.");
+    setJoining(true);
+    const res = await kvdbGet(code, "game");
+    if (!res.ok) {
+      setJoining(false);
+      return setError(res.message);
+    }
+    if (!res.value) {
+      setJoining(false);
+      return setError("No game found with that code.");
+    }
+    const g = res.value;
+    const playerId = uid();
+    g.players[playerId] = {
+      id: playerId,
+      name: jName.trim(),
+      phone: jPhone.trim(),
+      buyins: [{
+        id: uid(),
+        ts: Date.now(),
+        amount: g.buyInAmount
+      }],
+      cashedOut: false,
+      finalChips: null
+    };
+    const saveRes = await kvdbPut(code, "game", g);
+    setJoining(false);
+    if (!saveRes.ok) return setError(`Couldn't join: ${saveRes.message}`);
+    const r = {
+      code,
+      playerId,
+      isHost: false
+    };
+    saveRole(r);
+    setRole(r);
+    setGame(g);
+    setScreen("game");
+  }
+  async function addBuyIn(amount) {
+    await mutateGame(g => {
+      g.players[role.playerId].buyins.push({
+        id: uid(),
+        ts: Date.now(),
+        amount: amount ?? g.buyInAmount
+      });
+    });
+  }
+  async function removeBuyIn(buyinId) {
+    await mutateGame(g => {
+      const p = g.players[role.playerId];
+      p.buyins = p.buyins.filter(b => b.id !== buyinId);
+    });
+  }
+  function startCustomBuyIn() {
+    setError("");
+    setCustomBuyIn(true);
+    setCustomAmount(game ? String(game.buyInAmount) : "");
+  }
+  async function confirmCustomBuyIn() {
+    const amt = parseFloat(customAmount);
+    if (!amt || amt <= 0) return setError("Enter a valid buy-in amount.");
+    setError("");
+    await addBuyIn(amt);
+    setCustomBuyIn(false);
+    setCustomAmount("");
+  }
+  function startEditName() {
+    setEditingName(true);
+    setNameInput(game.players[role.playerId].name);
+  }
+  async function confirmEditName() {
+    if (!nameInput.trim()) return setError("Name can't be empty.");
+    setError("");
+    await mutateGame(g => {
+      g.players[role.playerId].name = nameInput.trim();
+    });
+    setEditingName(false);
+  }
+  function startCashOut() {
+    setError("");
+    setCashingOut(true);
+    setCashOutAmount("");
+  }
+  async function confirmCashOut() {
+    const chips = parseInt(cashOutAmount, 10);
+    if (isNaN(chips) || chips < 0) return setError("Enter a valid chip count.");
+    setError("");
+    await mutateGame(g => {
+      g.players[role.playerId].cashedOut = true;
+      g.players[role.playerId].finalChips = chips;
+    });
+    setCashingOut(false);
+    setCashOutAmount("");
+  }
+  async function reopenSelf() {
+    await mutateGame(g => {
+      g.players[role.playerId].cashedOut = false;
+      g.players[role.playerId].finalChips = null;
+    });
+  }
+  async function startSettling() {
+    await mutateGame(g => {
+      g.phase = "settling";
+    });
+  }
+  async function submitFinal() {
+    const chips = parseInt(finalInput, 10);
+    if (isNaN(chips) || chips < 0) return setError("Enter your final chip count.");
+    setError("");
+    await mutateGame(g => {
+      g.players[role.playerId].finalChips = chips;
+    });
+    setFinalInput("");
+  }
+  async function finalizeSettlement() {
+    await mutateGame(g => {
+      const nets = {};
+      Object.values(g.players).forEach(p => {
+        const paidIn = buyInTotal(p.buyins);
+        const chipsVal = (p.finalChips || 0) / g.chipsPerDollar;
+        nets[p.id] = Math.round((chipsVal - paidIn) * 100) / 100;
+      });
+      const txns = settleDebts(nets);
+      g.settlement = {
+        nets,
+        transactions: txns
+      };
+      g.phase = "settled";
+      g.settledAt = Date.now();
+    });
+  }
+  const recordedRef = useRef(null);
+  useEffect(() => {
+    if (game && game.phase === "settled" && game.settlement && role && role.isHost && recordedRef.current !== game.code + game.settledAt) {
+      recordedRef.current = game.code + game.settledAt;
+      recordGameResult({
+        id: game.code,
+        name: game.name,
+        date: new Date(game.settledAt || Date.now()).toISOString(),
+        buyInAmount: game.buyInAmount,
+        chipsPerDollar: game.chipsPerDollar,
+        players: Object.values(game.players).map(p => ({
+          name: p.name,
+          phone: p.phone,
+          net: game.settlement.nets[p.id],
+          buyins: p.buyins.length
+        })),
+        transactions: game.settlement.transactions
+      });
+    }
+  }, [game, role]);
+  async function leaveGame() {
+    clearRole();
+    setRole(null);
+    setGame(null);
+    setScreen("home");
+  }
+  const players = game ? Object.values(game.players) : [];
+  const isHost = game && role && game.hostId === role.playerId;
+  const me = game && role ? game.players[role.playerId] : null;
+  const totalBuyInDollars = game ? players.reduce((s, p) => s + buyInTotal(p.buyins), 0) : 0;
+  const totalFinalChips = players.reduce((s, p) => s + (p.finalChips || 0), 0);
+  const totalFinalDollars = game ? totalFinalChips / game.chipsPerDollar : 0;
+  const allFinalIn = players.length > 0 && players.every(p => p.finalChips !== null);
+  const discrepancy = game ? Math.round((totalFinalDollars - totalBuyInDollars) * 100) / 100 : 0;
+  const maxBuyins = players.length ? Math.max(1, ...players.map(p => p.buyins.length)) : 1;
+  const totalChipsInPlay = game ? totalBuyInDollars * game.chipsPerDollar : 0;
+  const summaryText = useMemo(() => {
+    if (!game || game.phase !== "settled" || !game.settlement) return "";
+    return buildSummaryText(game, game.settlement.nets, game.settlement.transactions);
+  }, [game]);
+  const [copyStatus, setCopyStatus] = useState("");
+  const summaryRef = useRef(null);
+  async function shareSummary() {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: `${game.name} — Settlement`,
+          text: summaryText
+        });
+        return;
+      } catch {}
+    }
+    copySummary();
+  }
+  async function copySummary() {
+    try {
+      await navigator.clipboard.writeText(summaryText);
+      setCopyStatus("Copied!");
+    } catch {
+      if (summaryRef.current) {
+        summaryRef.current.select();
+        try {
+          document.execCommand("copy");
+          setCopyStatus("Copied!");
+        } catch {
+          setCopyStatus("Select the text above and copy manually.");
+        }
+      }
+    }
+    setTimeout(() => setCopyStatus(""), 2500);
+  }
+  function downloadSummary() {
+    const blob = new Blob([summaryText], {
+      type: "text/plain"
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${game.name.replace(/[^a-z0-9]+/gi, "-")}-settlement.txt`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }
+  const inputClass = "w-full bg-felt-800/70 text-bone font-mono text-[15px] rounded-2xl px-4 py-3.5 border border-felt-600 outline-none placeholder:text-smoke/60 focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition";
+  const labelClass = "font-mono text-[11px] tracking-[0.14em] text-smoke uppercase block mb-1.5";
+  const primaryBtn = "font-display font-semibold rounded-2xl transition active:scale-[0.97] shadow-[0_0_24px_-4px_rgba(232,178,61,0.45)]";
+  const goldBtn = `${primaryBtn} bg-gradient-to-b from-gold-300 to-gold-500 text-ink hover:from-gold-200 hover:to-gold-400 disabled:opacity-50`;
+  const ghostBtn = "font-mono text-sm rounded-2xl border border-felt-600 text-bone bg-felt-800/60 hover:bg-felt-700/60 transition active:scale-[0.97]";
+  if (screen === "loading") {
+    return /*#__PURE__*/React.createElement("div", {
+      className: "min-h-screen bg-felt-950 flex items-center justify-center"
+    }, fontStyle, /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-gold-300 text-sm"
+    }, "shuffling..."));
+  }
+  if (screen === "home") {
+    return /*#__PURE__*/React.createElement("div", {
+      className: "min-h-screen bg-felt-950 flex flex-col items-center justify-center p-6"
+    }, fontStyle, /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-[11px] tracking-[0.2em] text-gold-400/80 uppercase mb-2"
+    }, "Table Ready"), /*#__PURE__*/React.createElement("h1", {
+      className: "font-display font-bold text-bone text-4xl mb-1 tracking-tight"
+    }, "Poker Ledger"), /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-smoke text-xs mb-10"
+    }, "everyone joins from their own phone"), /*#__PURE__*/React.createElement("div", {
+      className: "w-full max-w-sm space-y-3"
+    }, /*#__PURE__*/React.createElement("button", {
+      onClick: () => setScreen("create"),
+      className: `w-full ${goldBtn} text-lg py-4`
+    }, "Host a Game"), /*#__PURE__*/React.createElement("button", {
+      onClick: () => setScreen("join"),
+      className: `w-full ${ghostBtn} py-4 text-base`
+    }, "Join a Game"), /*#__PURE__*/React.createElement("button", {
+      onClick: () => setScreen("leaderboard"),
+      className: "w-full font-mono text-xs text-gold-400 border border-gold-500/40 rounded-full py-2.5 hover:bg-gold-500/10 transition"
+    }, "🏆 Leaderboard")));
+  }
+  if (screen === "create") {
+    return /*#__PURE__*/React.createElement("div", {
+      className: "min-h-screen bg-felt-950 p-5"
+    }, fontStyle, /*#__PURE__*/React.createElement("button", {
+      onClick: () => setScreen("home"),
+      className: "font-mono text-smoke text-xs mb-6"
+    }, "← back"), /*#__PURE__*/React.createElement("div", {
+      className: "max-w-sm mx-auto space-y-4"
+    }, /*#__PURE__*/React.createElement("h2", {
+      className: "font-display font-bold text-bone text-2xl tracking-tight mb-2"
+    }, "Set up the game"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+      className: labelClass
+    }, "Game Name"), /*#__PURE__*/React.createElement("input", {
+      value: cName,
+      onChange: e => setCName(e.target.value),
+      placeholder: "Thursday Night",
+      className: inputClass
+    })), /*#__PURE__*/React.createElement("div", {
+      className: "flex gap-3"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "flex-1"
+    }, /*#__PURE__*/React.createElement("label", {
+      className: labelClass
+    }, "Buy-in ($)"), /*#__PURE__*/React.createElement("input", {
+      value: cBuyIn,
+      onChange: e => setCBuyIn(e.target.value),
+      inputMode: "decimal",
+      className: inputClass
+    })), /*#__PURE__*/React.createElement("div", {
+      className: "flex-1"
+    }, /*#__PURE__*/React.createElement("label", {
+      className: labelClass
+    }, "Chips per $1"), /*#__PURE__*/React.createElement("input", {
+      value: cRate,
+      onChange: e => setCRate(e.target.value),
+      inputMode: "decimal",
+      className: inputClass
+    }))), /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-gold-400/90 text-xs pl-1"
+    }, "= ", (parseFloat(cBuyIn) || 0) * (parseFloat(cRate) || 0), " chips per buy-in"), /*#__PURE__*/React.createElement("div", {
+      className: "border-t border-felt-700 pt-4"
+    }, /*#__PURE__*/React.createElement("label", {
+      className: labelClass
+    }, "Your Name"), /*#__PURE__*/React.createElement("input", {
+      value: cHostName,
+      onChange: e => setCHostName(e.target.value),
+      className: `${inputClass} mb-3`
+    }), /*#__PURE__*/React.createElement("label", {
+      className: labelClass
+    }, "Your Mobile Number"), /*#__PURE__*/React.createElement("input", {
+      value: cHostPhone,
+      onChange: e => setCHostPhone(e.target.value),
+      inputMode: "tel",
+      className: inputClass
+    })), error && /*#__PURE__*/React.createElement("p", {
+      className: "text-coral-400 font-mono text-sm"
+    }, error), /*#__PURE__*/React.createElement("button", {
+      onClick: handleCreate,
+      disabled: creating,
+      className: `w-full ${goldBtn} text-lg py-4 mt-2`
+    }, creating ? "Creating..." : "Create Game")));
+  }
+  if (screen === "join") {
+    return /*#__PURE__*/React.createElement("div", {
+      className: "min-h-screen bg-felt-950 p-5"
+    }, fontStyle, /*#__PURE__*/React.createElement("button", {
+      onClick: () => setScreen("home"),
+      className: "font-mono text-smoke text-xs mb-6"
+    }, "← back"), /*#__PURE__*/React.createElement("div", {
+      className: "max-w-sm mx-auto space-y-4"
+    }, /*#__PURE__*/React.createElement("h2", {
+      className: "font-display font-bold text-bone text-2xl tracking-tight mb-2"
+    }, "Join a game"), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+      className: labelClass
+    }, "Game Code"), /*#__PURE__*/React.createElement("input", {
+      value: jCode,
+      onChange: e => setJCode(e.target.value),
+      placeholder: "paste or scan the code",
+      className: inputClass
+    })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+      className: labelClass
+    }, "Your Name"), /*#__PURE__*/React.createElement("input", {
+      value: jName,
+      onChange: e => setJName(e.target.value),
+      className: inputClass
+    })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", {
+      className: labelClass
+    }, "Your Mobile Number"), /*#__PURE__*/React.createElement("input", {
+      value: jPhone,
+      onChange: e => setJPhone(e.target.value),
+      inputMode: "tel",
+      className: inputClass
+    })), error && /*#__PURE__*/React.createElement("p", {
+      className: "text-coral-400 font-mono text-sm"
+    }, error), /*#__PURE__*/React.createElement("button", {
+      onClick: handleJoin,
+      disabled: joining,
+      className: `w-full ${goldBtn} text-lg py-4`
+    }, joining ? "Joining..." : "Join Game")));
+  }
+  if (screen === "game" && game) {
+    let joinUrl = game.code;
+    try {
+      joinUrl = `${window.location.origin}${window.location.pathname}?code=${game.code}`;
+    } catch {}
+    return /*#__PURE__*/React.createElement("div", {
+      className: "min-h-screen bg-felt-950 pb-28"
+    }, fontStyle, /*#__PURE__*/React.createElement("div", {
+      className: "max-w-sm mx-auto px-5 pt-6 pb-2 flex items-start justify-between"
+    }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", {
+      className: "font-display font-bold text-bone text-2xl tracking-tight"
+    }, game.name), /*#__PURE__*/React.createElement("div", {
+      className: "flex gap-2 mt-2.5"
+    }, /*#__PURE__*/React.createElement(Pill, {
+      className: "bg-felt-800 text-smoke"
+    }, "buy-in ", money(game.buyInAmount)), /*#__PURE__*/React.createElement(Pill, {
+      className: "bg-felt-800 text-smoke"
+    }, game.chipsPerDollar, " chips/$"))), /*#__PURE__*/React.createElement("div", {
+      className: "flex flex-col items-end gap-2 shrink-0"
+    }, /*#__PURE__*/React.createElement("button", {
+      onClick: () => setShowQR(true),
+      className: "font-mono text-xs text-gold-400 border border-gold-500/40 rounded-full px-3 py-1.5"
+    }, "Invite / QR"), /*#__PURE__*/React.createElement("button", {
+      onClick: leaveGame,
+      className: "font-mono text-smoke text-xs underline"
+    }, "leave"))), showQR && /*#__PURE__*/React.createElement("div", {
+      className: "fixed inset-0 bg-felt-950/95 z-50 flex flex-col items-center justify-center p-6",
+      onClick: () => setShowQR(false)
+    }, /*#__PURE__*/React.createElement("p", {
+      className: "font-display font-bold text-bone text-xl mb-4"
+    }, "Scan to join ", game.name), /*#__PURE__*/React.createElement(QRCode, {
+      text: joinUrl,
+      size: 220
+    }), /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-smoke text-xs mt-4"
+    }, "or share this code"), /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-gold-300 text-sm mt-2 break-all text-center px-4"
+    }, game.code), /*#__PURE__*/React.createElement("button", {
+      onClick: () => setShowQR(false),
+      className: "mt-8 font-mono text-smoke text-sm underline"
+    }, "close")), error && /*#__PURE__*/React.createElement("div", {
+      className: "max-w-sm mx-auto mt-3 bg-coral-500/10 border border-coral-500/30 rounded-2xl p-3.5 flex items-center justify-between"
+    }, /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-coral-300 text-xs"
+    }, error), /*#__PURE__*/React.createElement("button", {
+      onClick: () => {
+        setError("");
+        refresh();
+      },
+      className: "font-mono text-coral-200 text-xs underline ml-3 shrink-0"
+    }, "retry")), game.phase === "active" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
+      className: "max-w-sm mx-auto px-5 py-5 my-3 rounded-3xl bg-gradient-to-br from-felt-800 to-felt-900 border border-felt-700 shadow-[0_0_40px_-12px_rgba(232,178,61,0.25)]"
+    }, /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-[11px] tracking-[0.18em] text-smoke uppercase"
+    }, "Total in Play"), /*#__PURE__*/React.createElement("p", {
+      className: "font-display font-bold text-gold-300 text-4xl mt-1 tracking-tight"
+    }, money(totalBuyInDollars)), /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-smoke text-xs mt-1"
+    }, totalChipsInPlay.toLocaleString(), " chips · ", players.length, " players")), /*#__PURE__*/React.createElement("div", {
+      className: "max-w-sm mx-auto px-5 space-y-3"
+    }, players.map(p => {
+      const mine = p.id === role.playerId;
+      return /*#__PURE__*/React.createElement("div", {
+        key: p.id,
+        className: `rounded-2xl p-4 border ${mine ? "border-gold-500/50 bg-felt-900" : "border-felt-700 bg-felt-900/60"}`
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "flex items-center justify-between mb-2.5"
+      }, mine && editingName ? /*#__PURE__*/React.createElement("div", {
+        className: "flex items-center gap-2 flex-1"
+      }, /*#__PURE__*/React.createElement("input", {
+        value: nameInput,
+        onChange: e => setNameInput(e.target.value),
+        className: "flex-1 bg-felt-800 text-bone font-display font-semibold rounded-lg px-2.5 py-1.5 border border-felt-600 outline-none focus:border-gold-400"
+      }), /*#__PURE__*/React.createElement("button", {
+        onClick: confirmEditName,
+        className: "font-mono text-gold-400 text-xs"
+      }, "save"), /*#__PURE__*/React.createElement("button", {
+        onClick: () => setEditingName(false),
+        className: "font-mono text-smoke text-xs"
+      }, "cancel")) : /*#__PURE__*/React.createElement("span", {
+        className: "font-display font-semibold text-bone"
+      }, p.name, mine ? /*#__PURE__*/React.createElement("span", {
+        className: "text-gold-400 font-mono text-xs ml-2"
+      }, "you") : "", mine && !p.cashedOut && /*#__PURE__*/React.createElement("button", {
+        onClick: startEditName,
+        className: "ml-2 font-mono text-[10px] text-smoke underline align-middle"
+      }, "edit name")), /*#__PURE__*/React.createElement("span", {
+        className: "font-mono text-gold-300 text-sm shrink-0 ml-2"
+      }, money(buyInTotal(p.buyins)))), /*#__PURE__*/React.createElement(ChipStack, {
+        count: p.buyins.length,
+        max: maxBuyins
+      }), mine && /*#__PURE__*/React.createElement("button", {
+        onClick: () => setShowBuyInLog(v => !v),
+        className: "font-mono text-[11px] text-smoke underline mt-2"
+      }, showBuyInLog ? "hide" : "show", " buy-in log"), mine && showBuyInLog && /*#__PURE__*/React.createElement("div", {
+        className: "mt-2 space-y-1.5 bg-felt-800/50 rounded-xl p-2.5"
+      }, p.buyins.length === 0 && /*#__PURE__*/React.createElement("p", {
+        className: "font-mono text-smoke text-xs"
+      }, "No buy-ins yet."), p.buyins.map(b => /*#__PURE__*/React.createElement("div", {
+        key: b.id,
+        className: "flex items-center justify-between font-mono text-xs"
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "text-smoke"
+      }, new Date(b.ts).toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit"
+      }), " · ", money(b.amount)), !p.cashedOut && /*#__PURE__*/React.createElement("button", {
+        onClick: () => removeBuyIn(b.id),
+        className: "text-coral-400 underline ml-2"
+      }, "remove")))), mine && (p.cashedOut ? /*#__PURE__*/React.createElement("div", {
+        className: "flex items-center justify-between mt-3.5"
+      }, /*#__PURE__*/React.createElement("p", {
+        className: "font-mono text-smoke text-xs"
+      }, "Locked in: ", p.finalChips, " chips"), /*#__PURE__*/React.createElement("button", {
+        onClick: reopenSelf,
+        className: "font-mono text-gold-400 text-xs underline"
+      }, "reopen")) : cashingOut ? /*#__PURE__*/React.createElement("div", {
+        className: "mt-3.5 space-y-2"
+      }, /*#__PURE__*/React.createElement("input", {
+        value: cashOutAmount,
+        onChange: e => setCashOutAmount(e.target.value),
+        inputMode: "numeric",
+        placeholder: "your final chip count",
+        className: "w-full bg-felt-800 text-bone font-mono rounded-xl px-3.5 py-2.5 border border-felt-600 outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition"
+      }), /*#__PURE__*/React.createElement("div", {
+        className: "flex gap-2"
+      }, /*#__PURE__*/React.createElement("button", {
+        onClick: confirmCashOut,
+        className: `flex-1 ${goldBtn} py-2.5 text-sm`
+      }, "Confirm Cash Out"), /*#__PURE__*/React.createElement("button", {
+        onClick: () => setCashingOut(false),
+        className: `px-4 ${ghostBtn} text-xs`
+      }, "cancel"))) : customBuyIn ? /*#__PURE__*/React.createElement("div", {
+        className: "mt-3.5 space-y-2"
+      }, /*#__PURE__*/React.createElement("label", {
+        className: "font-mono text-[11px] text-smoke uppercase tracking-wide"
+      }, "Rebuy for a different amount ($)"), /*#__PURE__*/React.createElement("input", {
+        value: customAmount,
+        onChange: e => setCustomAmount(e.target.value),
+        inputMode: "decimal",
+        placeholder: "amount",
+        className: "w-full bg-felt-800 text-bone font-mono rounded-xl px-3.5 py-2.5 border border-felt-600 outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition"
+      }), /*#__PURE__*/React.createElement("div", {
+        className: "flex gap-2"
+      }, /*#__PURE__*/React.createElement("button", {
+        onClick: confirmCustomBuyIn,
+        className: `flex-1 ${goldBtn} py-2.5 text-sm`
+      }, "Add This Buy-in"), /*#__PURE__*/React.createElement("button", {
+        onClick: () => setCustomBuyIn(false),
+        className: `px-4 ${ghostBtn} text-xs`
+      }, "cancel"))) : /*#__PURE__*/React.createElement("div", {
+        className: "flex gap-2 mt-3.5 flex-wrap"
+      }, /*#__PURE__*/React.createElement("button", {
+        onClick: () => addBuyIn(),
+        className: `flex-1 ${goldBtn} py-3`
+      }, "+ Buy-in"), /*#__PURE__*/React.createElement("button", {
+        onClick: startCashOut,
+        className: `px-3 ${ghostBtn} text-xs`
+      }, "Cash Out"), /*#__PURE__*/React.createElement("button", {
+        onClick: startCustomBuyIn,
+        className: "w-full font-mono text-[11px] text-smoke underline text-center mt-0.5"
+      }, "rebuy for a different amount"))));
+    })), /*#__PURE__*/React.createElement("div", {
+      className: "fixed bottom-0 left-0 right-0 p-4 bg-felt-950/80 backdrop-blur-md border-t border-felt-700"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "max-w-sm mx-auto"
+    }, isHost ? /*#__PURE__*/React.createElement("button", {
+      onClick: startSettling,
+      className: `w-full ${ghostBtn} py-3.5 text-sm`
+    }, "End Game & Count Chips") : /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-smoke text-xs text-center py-2"
+    }, "Waiting for the host to end the game when ready.")))), game.phase === "settling" && /*#__PURE__*/React.createElement("div", {
+      className: "max-w-sm mx-auto px-5 py-4 pb-32"
+    }, /*#__PURE__*/React.createElement("h2", {
+      className: "font-display font-bold text-bone text-2xl tracking-tight mb-1"
+    }, "Count the chips"), /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-smoke text-sm mb-5"
+    }, "Everyone counts their own stack and enters it below."), me.finalChips === null ? /*#__PURE__*/React.createElement("div", {
+      className: "space-y-2 mb-5"
+    }, /*#__PURE__*/React.createElement("input", {
+      value: finalInput,
+      onChange: e => setFinalInput(e.target.value),
+      inputMode: "numeric",
+      placeholder: "your chip count",
+      className: "w-full bg-felt-800 text-bone font-mono text-xl rounded-2xl px-4 py-3.5 border border-felt-600 outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition"
+    }), error && /*#__PURE__*/React.createElement("p", {
+      className: "text-coral-400 font-mono text-sm"
+    }, error), /*#__PURE__*/React.createElement("button", {
+      onClick: submitFinal,
+      className: `w-full ${goldBtn} text-lg py-3.5`
+    }, "Submit My Count")) : /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-gold-300 text-sm mb-5"
+    }, "You entered ", me.finalChips, " chips. Waiting on the table..."), /*#__PURE__*/React.createElement("div", {
+      className: "space-y-2 pt-4 border-t border-felt-700"
+    }, players.map(p => /*#__PURE__*/React.createElement("div", {
+      key: p.id,
+      className: "flex justify-between font-mono text-sm"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "text-bone"
+    }, p.name), /*#__PURE__*/React.createElement("span", {
+      className: p.finalChips === null ? "text-smoke" : "text-gold-300"
+    }, p.finalChips === null ? "counting..." : `${p.finalChips} chips`)))), isHost && /*#__PURE__*/React.createElement("div", {
+      className: "pt-4 mt-4 border-t border-felt-700"
+    }, /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-xs text-smoke mb-1"
+    }, "Buy-ins: ", /*#__PURE__*/React.createElement("span", {
+      className: "text-bone"
+    }, money(totalBuyInDollars)), " · Final value: ", /*#__PURE__*/React.createElement("span", {
+      className: "text-bone"
+    }, money(totalFinalDollars))), Math.abs(discrepancy) > 0.01 && /*#__PURE__*/React.createElement("div", {
+      className: "mt-2 bg-coral-500/10 border border-coral-500/30 rounded-2xl p-3.5"
+    }, /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-coral-300 text-sm"
+    }, discrepancy > 0 ? `Table has ${money(discrepancy)} more in chips than was bought in — someone over-counted (or a buy-in wasn't logged).` : `Table is ${money(Math.abs(discrepancy))} short of what was bought in — someone under-counted (or miscounted a stack).`), /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-coral-400/80 text-xs mt-1.5"
+    }, "That's ", Math.round(Math.abs(discrepancy) * game.chipsPerDollar), " chips off overall. Recheck the counts above.")), !allFinalIn && /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-gold-400 text-xs mt-2"
+    }, "Not everyone has entered their count yet.")), isHost && /*#__PURE__*/React.createElement("div", {
+      className: "fixed bottom-0 left-0 right-0 p-4 bg-felt-950/80 backdrop-blur-md border-t border-felt-700"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "max-w-sm mx-auto"
+    }, /*#__PURE__*/React.createElement("button", {
+      onClick: finalizeSettlement,
+      className: `w-full ${goldBtn} text-lg py-4`
+    }, "Calculate Settlement")))), game.phase === "settled" && game.settlement && /*#__PURE__*/React.createElement("div", {
+      className: "max-w-sm mx-auto px-5 py-4"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "flex items-center justify-between mb-4"
+    }, /*#__PURE__*/React.createElement("h2", {
+      className: "font-display font-bold text-bone text-2xl tracking-tight"
+    }, "Settle Up"), isHost && /*#__PURE__*/React.createElement("button", {
+      onClick: () => setScreen("leaderboard"),
+      className: "font-mono text-gold-400 text-xs"
+    }, "🏆 leaderboard")), Math.abs(discrepancy) > 0.01 && /*#__PURE__*/React.createElement("div", {
+      className: "bg-coral-500/10 border border-coral-500/30 rounded-2xl p-3.5 mb-4"
+    }, /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-coral-300 text-xs"
+    }, discrepancy > 0 ? `Chips counted were ${money(discrepancy)} more than total buy-ins — someone over-counted.` : `Chips counted were ${money(Math.abs(discrepancy))} short of total buy-ins — someone under-counted.`), isHost && /*#__PURE__*/React.createElement("button", {
+      onClick: () => mutateGame(g => {
+        g.phase = "settling";
+      }),
+      className: "mt-2 font-mono text-gold-300 text-xs underline"
+    }, "Recount & fix numbers")), /*#__PURE__*/React.createElement("div", {
+      className: "space-y-2 mb-5"
+    }, players.map(p => {
+      const net = game.settlement.nets[p.id];
+      return /*#__PURE__*/React.createElement("div", {
+        key: p.id,
+        className: "flex justify-between items-center bg-felt-900 border border-felt-700 rounded-2xl px-4 py-3"
+      }, /*#__PURE__*/React.createElement("span", {
+        className: "font-display font-medium text-bone"
+      }, p.name), /*#__PURE__*/React.createElement("span", {
+        className: `font-mono text-sm font-medium ${net >= 0 ? "text-mint-400" : "text-coral-400"}`
+      }, net >= 0 ? "+" : "", money(net)));
+    })), /*#__PURE__*/React.createElement("div", {
+      className: "mb-5"
+    }, /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-[11px] tracking-[0.14em] text-smoke uppercase mb-2"
+    }, "Transactions"), game.settlement.transactions.length === 0 && /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-mint-400 text-sm"
+    }, "Everyone's even — no payments needed."), /*#__PURE__*/React.createElement("div", {
+      className: "space-y-2"
+    }, game.settlement.transactions.map((t, i) => {
+      const from = game.players[t.from],
+        to = game.players[t.to];
+      return /*#__PURE__*/React.createElement("div", {
+        key: i,
+        className: "bg-gradient-to-br from-gold-500/10 to-transparent border border-gold-500/30 rounded-2xl p-3.5"
+      }, /*#__PURE__*/React.createElement("p", {
+        className: "font-display font-medium text-bone text-sm"
+      }, from.name, " ", /*#__PURE__*/React.createElement("span", {
+        className: "text-smoke font-normal"
+      }, "pays"), " ", to.name, " ", /*#__PURE__*/React.createElement("span", {
+        className: "text-gold-300 font-mono"
+      }, money(t.amount))), /*#__PURE__*/React.createElement("p", {
+        className: "font-mono text-smoke text-xs mt-1"
+      }, from.name, from.phone ? ` (${from.phone})` : "", " → ", to.name, to.phone ? ` (${to.phone})` : ""));
+    }))), /*#__PURE__*/React.createElement("div", {
+      className: "pt-4 border-t border-felt-700 space-y-3"
+    }, /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-[11px] tracking-[0.14em] text-gold-400 uppercase"
+    }, "Export & Share"), /*#__PURE__*/React.createElement("div", {
+      className: "flex gap-2"
+    }, /*#__PURE__*/React.createElement("button", {
+      onClick: shareSummary,
+      className: `flex-1 ${goldBtn} py-3 text-sm`
+    }, "Share"), /*#__PURE__*/React.createElement("button", {
+      onClick: copySummary,
+      className: `flex-1 ${ghostBtn} py-3 text-sm`
+    }, "Copy Text"), /*#__PURE__*/React.createElement("button", {
+      onClick: downloadSummary,
+      className: `flex-1 ${ghostBtn} py-3 text-sm`
+    }, "Download")), copyStatus && /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-mint-400 text-xs"
+    }, copyStatus), /*#__PURE__*/React.createElement("textarea", {
+      ref: summaryRef,
+      readOnly: true,
+      value: summaryText,
+      className: "w-full h-40 bg-felt-900 text-smoke font-mono text-xs rounded-2xl p-3.5 border border-felt-700 outline-none"
+    }))));
+  }
+  if (screen === "leaderboard") {
+    const backTarget = role && game ? "game" : "home";
+    return /*#__PURE__*/React.createElement("div", {
+      className: "min-h-screen bg-felt-950 p-5"
+    }, fontStyle, /*#__PURE__*/React.createElement("div", {
+      className: "max-w-sm mx-auto"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "flex items-center justify-between mb-1"
+    }, /*#__PURE__*/React.createElement("h2", {
+      className: "font-display font-bold text-bone text-2xl tracking-tight"
+    }, "🏆 Leaderboard"), /*#__PURE__*/React.createElement("button", {
+      onClick: () => setScreen(backTarget),
+      className: "font-mono text-smoke text-xs"
+    }, "close")), /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-smoke text-xs mb-5"
+    }, "All-time results across ", history.length, " recorded game", history.length === 1 ? "" : "s", " on this device."), !storageOK && /*#__PURE__*/React.createElement("div", {
+      className: "bg-coral-500/10 border border-coral-500/30 rounded-2xl p-3.5 mb-4"
+    }, /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-coral-300 text-xs"
+    }, "Browser storage isn't available right now, so results won't be saved once you close this page.")), leaderboard.length === 0 ? /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-smoke text-sm mb-6"
+    }, "No games recorded yet on this device. Play one and settle up to start the leaderboard.") : /*#__PURE__*/React.createElement("div", {
+      className: "space-y-2 mb-6"
+    }, leaderboard.map((p, i) => /*#__PURE__*/React.createElement("div", {
+      key: p.name,
+      className: "flex items-center gap-3 bg-felt-900 border border-felt-700 rounded-2xl px-4 py-3"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "font-display font-bold text-smoke text-sm w-5 shrink-0"
+    }, i + 1), /*#__PURE__*/React.createElement("div", {
+      className: "flex-1 min-w-0"
+    }, /*#__PURE__*/React.createElement("p", {
+      className: "font-display font-semibold text-bone truncate"
+    }, p.name), /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-smoke text-[11px] mt-0.5"
+    }, p.games, " game", p.games === 1 ? "" : "s", " · ", p.wins, "W–", p.losses, "L · best ", money(p.best), " · worst ", money(p.worst))), /*#__PURE__*/React.createElement("span", {
+      className: `font-mono text-sm font-medium shrink-0 ${p.net >= 0 ? "text-mint-400" : "text-coral-400"}`
+    }, p.net >= 0 ? "+" : "", money(p.net))))), recentGames.length > 0 && /*#__PURE__*/React.createElement("div", {
+      className: "mb-6"
+    }, /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-[11px] tracking-[0.14em] text-smoke uppercase mb-2"
+    }, "Recent Games"), /*#__PURE__*/React.createElement("div", {
+      className: "space-y-2"
+    }, recentGames.map(h => {
+      const top = [...h.players].sort((a, b) => b.net - a.net)[0];
+      return /*#__PURE__*/React.createElement("div", {
+        key: h.id,
+        className: "flex items-center justify-between bg-felt-900/60 border border-felt-700 rounded-xl px-3.5 py-2.5"
+      }, /*#__PURE__*/React.createElement("div", {
+        className: "min-w-0"
+      }, /*#__PURE__*/React.createElement("p", {
+        className: "font-display text-bone text-sm truncate"
+      }, h.name), /*#__PURE__*/React.createElement("p", {
+        className: "font-mono text-smoke text-[11px] mt-0.5"
+      }, new Date(h.date).toLocaleDateString(), " · ", h.players.length, " players")), top && /*#__PURE__*/React.createElement("span", {
+        className: "font-mono text-gold-300 text-xs shrink-0 ml-2"
+      }, top.name, " +", money(top.net).replace("$", "")));
+    }))), /*#__PURE__*/React.createElement("div", {
+      className: "pt-4 border-t border-felt-700 space-y-3"
+    }, /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-[11px] tracking-[0.14em] text-gold-400 uppercase"
+    }, "Backup"), /*#__PURE__*/React.createElement("div", {
+      className: "flex gap-2"
+    }, /*#__PURE__*/React.createElement("button", {
+      onClick: exportHistory,
+      disabled: history.length === 0,
+      className: `flex-1 ${ghostBtn} py-2.5 text-sm disabled:opacity-40`
+    }, "Export Backup"), /*#__PURE__*/React.createElement("button", {
+      onClick: () => importFileRef.current && importFileRef.current.click(),
+      className: `flex-1 ${ghostBtn} py-2.5 text-sm`
+    }, "Import Backup"), /*#__PURE__*/React.createElement("input", {
+      ref: importFileRef,
+      type: "file",
+      accept: "application/json",
+      onChange: importHistoryFile,
+      className: "hidden"
+    })), importStatus && /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-gold-300 text-xs"
+    }, importStatus), /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-smoke text-[11px]"
+    }, "Save a backup before clearing browser data or switching phones — import merges with whatever's already here.")), history.length > 0 && /*#__PURE__*/React.createElement("div", {
+      className: "pt-4 mt-4 border-t border-felt-700"
+    }, confirmingClear ? /*#__PURE__*/React.createElement("div", {
+      className: "bg-coral-500/10 border border-coral-500/30 rounded-2xl p-3.5"
+    }, /*#__PURE__*/React.createElement("p", {
+      className: "font-mono text-coral-300 text-xs mb-2.5"
+    }, "Clear all leaderboard history on this device? This can't be undone."), /*#__PURE__*/React.createElement("div", {
+      className: "flex gap-2"
+    }, /*#__PURE__*/React.createElement("button", {
+      onClick: clearHistory,
+      className: "flex-1 bg-coral-500 text-white font-mono text-xs py-2.5 rounded-xl"
+    }, "Yes, clear it"), /*#__PURE__*/React.createElement("button", {
+      onClick: () => setConfirmingClear(false),
+      className: `flex-1 ${ghostBtn} py-2.5 text-xs`
+    }, "Cancel"))) : /*#__PURE__*/React.createElement("button", {
+      onClick: () => setConfirmingClear(true),
+      className: "font-mono text-smoke text-xs underline"
+    }, "Clear history"))));
+  }
+  return null;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(/*#__PURE__*/React.createElement(PokerLedger, null));
+</script>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("sw.js").catch(() => {});
+    });
+  }
+</script>
+</body>
+</html>
